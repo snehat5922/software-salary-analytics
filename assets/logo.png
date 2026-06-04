@@ -1,0 +1,27 @@
+from PIL import Image, ImageDraw, ImageFont
+
+# Create image
+width, height = 500, 500
+img = Image.new("RGB", (width, height), "#4F46E5")
+
+draw = ImageDraw.Draw(img)
+
+# Draw circle
+draw.ellipse((80, 80, 420, 420), fill="#FFFFFF")
+
+# Draw briefcase icon
+draw.rectangle((170, 200, 330, 320), fill="#4F46E5")
+draw.rectangle((210, 160, 290, 210), outline="#4F46E5", width=8)
+
+# Add text
+try:
+    font = ImageFont.truetype("arial.ttf", 40)
+except:
+    font = ImageFont.load_default()
+
+draw.text((110, 430), "Salary Analytics", fill="white", font=font)
+
+# Save
+img.save("logo.png")
+
+print("logo.png created successfully!")
