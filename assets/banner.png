@@ -1,0 +1,61 @@
+from PIL import Image, ImageDraw, ImageFont
+
+# Canvas size
+width = 1400
+height = 400
+
+# Create background
+img = Image.new("RGB", (width, height), "#0F172A")
+draw = ImageDraw.Draw(img)
+
+# Gradient-style rectangles
+draw.rectangle((0, 0, width, height), fill="#0F172A")
+draw.rectangle((0, 0, width, 80), fill="#4F46E5")
+
+# Decorative circles
+draw.ellipse((1050, 40, 1350, 340), fill="#4338CA")
+draw.ellipse((950, 120, 1200, 370), fill="#6366F1")
+
+# Fonts
+try:
+    title_font = ImageFont.truetype("arialbd.ttf", 60)
+    subtitle_font = ImageFont.truetype("arial.ttf", 28)
+except:
+    title_font = ImageFont.load_default()
+    subtitle_font = ImageFont.load_default()
+
+# Title
+draw.text(
+    (60, 110),
+    "Software Salary Analytics Dashboard",
+    fill="white",
+    font=title_font
+)
+
+# Subtitle
+draw.text(
+    (65, 200),
+    "Interactive insights for salaries, companies, locations and job roles",
+    fill="#CBD5E1",
+    font=subtitle_font
+)
+
+# Small analytics bars
+bar_x = 1080
+bars = [120, 180, 90, 230, 160]
+
+for i, h in enumerate(bars):
+    draw.rectangle(
+        (
+            bar_x + i * 45,
+            320 - h,
+            bar_x + i * 45 + 25,
+            320
+        ),
+        fill="white"
+    )
+
+# Save banner
+img.save("banner.png")
+
+print("banner.png generated successfully!")
