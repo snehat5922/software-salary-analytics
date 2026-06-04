@@ -1,0 +1,18 @@
+software-salary-analytics/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+│
+├── data/
+│   └── Salary_Dataset_with_Extra_Features.csv
+│
+├── assets/
+│   ├── logo.png
+│   └── banner.png
+│
+└── pages/
+    ├── 1_Overview.py
+    ├── 2_Salary_Analysis.py
+    ├── 3_Company_Insights.py
+    └── 4_Location_Analytics.py
